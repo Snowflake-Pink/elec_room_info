@@ -2,6 +2,7 @@ import re
 import random
 import requests
 from datetime import datetime
+from typing import Optional
 
 from .record_csv import CSVRecordHandler
 from .config import Config
@@ -181,7 +182,7 @@ class ElecRoomQuery:
     #     except requests.RequestException as e:
     #         logger.error('Error autoQuery:', e)
 
-    def _extract_float(self, text_value: str) -> float | None:
+    def _extract_float(self, text_value: str) -> Optional[float]:
         """
         从可能包含非数字字符的字符串中稳健地提取浮点数。
         例如："房间当前剩余电量14.60元" -> 14.60
